@@ -7,6 +7,10 @@ public class GameSequence : MonoBehaviour
     [SerializeField] GameObject _spawner;
     [SerializeField] GameObject _player;
     [SerializeField] GameObject _titleLogo;
+    [SerializeField] GameObject _firstFade;
+    [SerializeField] GameObject _endFade;
+
+    bool nowFade = true;
 
     enum State
     {
@@ -17,9 +21,22 @@ public class GameSequence : MonoBehaviour
 
     State _state = State.Title;
 
+    private void Start()
+    {
+        // 最初のフェードを実行
+        var fadeSceneLoader = _firstFade.GetComponent<FadeSceneLoader>();
+        fadeSceneLoader.SetCallBack(() =>
+               {
+                   nowFade = false;
+               });
+        fadeSceneLoader.CallCoroutine();
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (nowFade) return;
+
         if (_state == State.Title)
         {
             if (Input.GetMouseButtonDown(0))
@@ -40,11 +57,17 @@ public class GameSequence : MonoBehaviour
         }
         else if (_state == State.GameOver)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                // シーンをリロード
-                UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
-            }
+            // ゲームオーバー時のフェードを実行
+            var fadeSceneLoader = _endFade.GetComponent<FadeSceneLoader>();
+            fadeSceneLoader.fadeDuration = 3.0f;
+            fadeSceneLoader.SetCallBack(() =>
+                       {
+                           // シーンをリロード
+                           UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+                       });
+            fadeSceneLoader.CallCoroutine();
+
+            nowFade = true;
         }
     }
 
