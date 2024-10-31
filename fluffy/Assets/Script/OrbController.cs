@@ -5,7 +5,7 @@ using UnityEngine;
 public class OrbController : MonoBehaviour
 {
     private Rigidbody2D _rb;
-    private float _speed = 1.5f;
+    readonly float _speed = 0.8f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +21,5 @@ public class OrbController : MonoBehaviour
 
         // ÉIÅ[ÉuÇîÚÇŒÇ∑
         _rb.velocity = vec * 3.0f;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
