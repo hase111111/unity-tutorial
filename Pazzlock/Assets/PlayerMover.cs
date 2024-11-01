@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
@@ -8,13 +9,23 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] float _speed = 5.0f;
     [SerializeField] Animator _animator;
     [SerializeField] SpriteRenderer _spriteRenderer;
+    [SerializeField] GameObject _gameClearEffct;
 
     float _velocityX = 0f;
     float _velocityY = 0f;
 
+    bool _isGameClear = false;
+
+    private void Start()
+    {
+        _gameClearEffct.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (_isGameClear) return;
+
         _velocityX = Input.GetAxis("Horizontal") * _speed;
         _velocityY = Input.GetAxis("Vertical") * _speed;
 
@@ -37,5 +48,14 @@ public class PlayerMover : MonoBehaviour
         {
             _spriteRenderer.flipX = true;
         }
+    }
+
+    public void GameClear() 
+    {
+        _isGameClear = true;
+
+        _animator.SetBool("cheer", true);
+
+        _gameClearEffct.SetActive(true);
     }
 }
