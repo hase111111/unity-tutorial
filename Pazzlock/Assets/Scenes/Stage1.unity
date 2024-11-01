@@ -1040,6 +1040,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 857867243}
   _speed: 5
+  _animator: {fileID: 857867240}
+  _spriteRenderer: {fileID: 857867241}
 --- !u!1 &1475090026
 GameObject:
   m_ObjectHideFlags: 0
