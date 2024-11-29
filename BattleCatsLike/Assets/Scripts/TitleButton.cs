@@ -5,15 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class TitleButton : MonoBehaviour
 {
+    [SerializeField] GameObject titleOptionPanel;
+
     public void OnClickStartButton()
     {
         // GameScene‚É‘JˆÚ
         SceneManager.LoadScene("GameScene");
     }
 
-    public void OnClickOptionButton()
+    public void OnClickCreditButton()
     {
-        // RankingScene‚É‘JˆÚ
-        Debug.Log("OptionButton‚ª‰Ÿ‚³‚ê‚Ü‚µ‚½");
+        titleOptionPanel.SetActive(true);
     }
 }
