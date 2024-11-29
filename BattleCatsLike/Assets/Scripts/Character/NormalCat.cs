@@ -14,7 +14,7 @@ public class NormalCat : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.position -= new Vector3(_behavior.Speed, 0, 0);
 

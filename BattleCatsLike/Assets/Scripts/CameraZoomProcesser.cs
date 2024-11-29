@@ -26,13 +26,13 @@ public class CameraZoomProcesser : MonoBehaviour
 
     void Update()
     {
-        _zoomValue += _pinchInputHandler.GetPinchDelta() * 0.01f;
+        _zoomValue += _pinchInputHandler.GetPinchDelta() * -0.01f;
 
         UpdateZoom();
 
         if (_swipeInputHandler.IsSwiping())
         {
-            _cameraTargetPositionX += _swipeInputHandler.GetSwipeDelta().x * 0.01f;
+            _cameraTargetPositionX += _swipeInputHandler.GetSwipeDelta().x * -0.01f;
 
             UpdatePosition();
         }
