@@ -1,8 +1,9 @@
 
 public class NormalCatBehavior : ICharacterBehavior
 {
-    public int PositionX { get; set; }
+    public float PositionX { get; set; }
     public float Speed { get; } = 0.0075f;
+    public float Distance { get; } = 0.5f;
     readonly int _maxHp = 100;
     int _hp;
 
