@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.smile.carry_vault": {
+      "version": "https://github.com/hase111111/carry-vault.git?path=Assets/Package",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "689462d64daacf60af4b393068ff07d16edcd473"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.9",
       "depth": 1,
