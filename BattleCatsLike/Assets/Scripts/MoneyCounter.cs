@@ -40,4 +40,9 @@ public class MoneyCounter : MonoBehaviour
     {
         return _maxMoney[Level - 1];
     }
+
+    public int GetLevelUpCost()
+    {
+        return _levelUpCost[Level - 1];
+    }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class MoneyText : MonoBehaviour
+public class MoneyLevelUpText : MonoBehaviour
 {
     TextMeshProUGUI _text;
     MoneyCounter _moneyCounter;
@@ -16,6 +16,6 @@ public class MoneyText : MonoBehaviour
 
     void Update()
     {
-        _text.text = $"{_moneyCounter.Money} / {_moneyCounter.GetMaxMoney()}‰~";
+        _text.text = $"Level {_moneyCounter.Level}\n{_moneyCounter.GetLevelUpCost()}‰~";
     }
 }
